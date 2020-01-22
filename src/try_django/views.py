@@ -4,7 +4,13 @@ from django.template.loader import get_template
 
 def home_page(request):
     title = "Hello, there."
+
     context = {"title": title}
+    if request.user.is_authenticated:
+        context = {
+            "title": title, 
+            "my_list": ["a", "b", "c"]
+        }
     return render(request, "home.html", context)
 
 def about_page(request):
