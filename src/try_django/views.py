@@ -1,14 +1,25 @@
 from django.http import HttpResponse
 from django.shortcuts import render
+from django.template.loader import get_template
 
 def home_page(request):
     title = "Hello, there."
-    return render(request, "home_page.html", {"title": title})
+    context = {"title": title}
+    return render(request, "home_page.html", context)
 
 def about_page(request):
     title = "About"
-    return render(request, "home_page.html", {"title": title})
+    context = {"title": title}
+    return render(request, "home_page.html", context)
 
 def contact_page(request):
     title = "Contact"
-    return render(request, "home_page.html", {"title": title})
+    context = {"title": title}
+    return render(request, "home_page.html", context)
+
+def example_page(request):
+    context = {"title": "example"}
+    template_name = "title.txt"
+    template_obj = get_template (template_name)
+    rendered_string = template_obj.render(context)
+    return HttpResponse(rendered_string)
