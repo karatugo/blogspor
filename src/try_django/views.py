@@ -19,9 +19,9 @@ def about_page(request):
     return render(request, "home_page.html", context)
 
 def contact_page(request):
-    title = "Contact"
+    title = "Contact us"
     context = {"title": title}
-    return render(request, "home_page.html", context)
+    return render(request, "form.html", context)
 
 def example_page(request):
     context = {"title": "example"}
