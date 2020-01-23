@@ -22,10 +22,9 @@ def blog_post_create_view(request):
     # use django forms
     form = BlogPostModelForm(request.POST or None)
     if form.is_valid():
-        # obj = form.save(commit=False)
-        # obj.title = "Title is " + form.cleaned_data.get("title")
-        # obj.save()
-        form.save()
+        obj = form.save(commit=False)
+        obj.user = request.user
+        obj.save()
         form = BlogPostModelForm()
 
     template_name = "form.html"
