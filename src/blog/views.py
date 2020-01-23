@@ -4,19 +4,6 @@ from django.shortcuts import render, get_object_or_404
 # Create your views here.
 from .models import BlogPost
 
-def blog_post_detail_page(request, slug):
-    #print("DJANGO SAYS", request.method, request.path, request.user)
-    ## When slug was non-unique
-    # queryset = BlogPost.objects.filter(slug=slug)
-    # if queryset.count() == 0:
-    #     raise Http404    
-    # obj = queryset.first()
-
-    obj = get_object_or_404(BlogPost, slug=slug)
-    template_name = "blog_post_detail.html"
-    context = {"object": obj}
-    return render(request, template_name, context)
-
 ## C.R.U.D. operations
 def blog_post_list_view(request):
     # list out objects
