@@ -5,7 +5,7 @@
 <h1>{{ title }}</h1>
 
 {% for blog_post in blog_list %}
-    {% include "blog/list-inline.html" with blog_post=blog_post %}
+    {% include "blog/list-inline.html" with blog_post=blog_post truncate=True%}
 {% endfor %}
 
 {% endblock %}
