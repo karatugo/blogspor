@@ -23,3 +23,11 @@ class BlogPost(models.Model): #blogpost_set -> queryset
     # >>> from blog.models import BlogPost
     # >>> qs = BlogPost.objects.filter(user__id=1)
     
+    def get_absolute_url(self):
+        return f"/blog/{self.slug}"
+
+    def get_edit_url(self):
+        return f"{self.get_absolute_url()}/edit"
+
+    def get_delete_url(self):
+        return f"{self.get_absolute_url()}/delete"
