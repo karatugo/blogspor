@@ -3,11 +3,15 @@
 {% block content %}
 
 <h1>
-    {{object.title}} DELETE
+    Are you sure you want to delete {{object.title}}?
 </h1>
 
 <p>
     {{object.content}}
 </p>
+
+<form method="POST">{% csrf_token %}
+    <button class="btn btn-danger">Yes, delete</button>
+</form>
 
 {% endblock%}
