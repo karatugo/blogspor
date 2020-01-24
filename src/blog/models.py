@@ -10,6 +10,9 @@ class BlogPost(models.Model): #blogpost_set -> queryset
     title = models.CharField(max_length=120)
     slug = models.SlugField(unique=True) # hello world -> hello-world
     content = models.TextField(null=True, blank=True)
+    publish_date = models.DateTimeField(auto_now=False, auto_now_add=False, null=True)
+    timestamp = models.DateTimeField(auto_now_add=True)
+    updated = models.DateTimeField(auto_now=True)
 
     # >>> from django.contrib.auth import get_user_model
     # >>> User = get_user_model()
@@ -22,6 +25,9 @@ class BlogPost(models.Model): #blogpost_set -> queryset
     #
     # >>> from blog.models import BlogPost
     # >>> qs = BlogPost.objects.filter(user__id=1)
+
+    class Meta:
+        ordering = ["-publish_date", "-updated", "-timestamp"]
     
     def get_absolute_url(self):
         return f"/blog/{self.slug}"
