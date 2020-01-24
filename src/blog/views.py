@@ -12,7 +12,10 @@ from .models import BlogPost
 def blog_post_list_view(request):
     # list out objects
     # could be search
-    qs = BlogPost.objects.all() #.published()
+    qs = BlogPost.objects.all().published()
+    if request.user.is_authenticated:
+        my_qs = BlogPost.objects.filter(user=request.user)
+        qs = (qs | my_qs).distinct()
     # qs = BlogPost.objects.filter(publish_date__lte=timezone.now)
     template_name = "blog/list.html"
     context = {"object_list": qs}
