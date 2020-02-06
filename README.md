@@ -1,8 +1,3 @@
-# django22
+# Blogspor
 
-## For Mac users
-```
-python3 -m pip install pipenv
-sudo python3 -m pipenv --python 3.6 install django==2.2
-python3 -m pipenv shell
-```
+This project follows the tutorial on YouTube ([Try DJANGO TUTORIAL Series (v2.2) // PYTHON Web Development with Django version 2.2](https://youtu.be/-oQvMHpKkms)) by [CodingEntrepreneurs](https://www.youtube.com/user/CodingEntrepreneurs). 
